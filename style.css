@@ -1,0 +1,111 @@
+/* ============================================
+   个人名片样式（style.css）
+   - 与 HTML 结构分离书写，仅负责外观表现
+   - 以下按模块分区，每区均有中文注释
+   ============================================ */
+
+/* ---------- 1. 基础重置：清除浏览器默认样式 ---------- */
+* {
+    margin: 0;              /* 清除默认外边距 */
+    padding: 0;             /* 清除默认内边距 */
+    box-sizing: border-box; /* 盒模型：宽高包含内边距与边框 */
+}
+
+/* ---------- 2. 页面整体布局：卡片居中 ---------- */
+body {
+    min-height: 100vh;                            /* 占满整个视口高度 */
+    display: flex;                                /* 使用弹性盒布局 */
+    justify-content: center;                      /* 水平方向居中 */
+    align-items: center;                          /* 垂直方向居中 */
+    background: linear-gradient(135deg, #eef2f7, #f8fafc); /* 浅灰蓝渐变背景，突出白色卡片 */
+    font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", "Helvetica Neue", sans-serif;
+    color: #33475b;                               /* 全局文字颜色 */
+}
+
+/* ---------- 3. 名片卡片本体 ---------- */
+.card {
+    width: 340px;                                 /* 卡片宽度（移动端可自适应） */
+    padding: 38px 30px;                           /* 内边距，让内容与边缘留白 */
+    background: #ffffff;                          /* 纯白底色，简约干净 */
+    border-radius: 12px;                          /* 关键样式①：12px 圆角 */
+    box-shadow: 0 10px 22px rgba(31, 45, 61, 0.14); /* 关键样式②：柔和阴影 */
+    transition:                                  /* 关键样式③：过渡动画 */
+        transform 0.35s ease,                     /* 位移过渡：悬停上浮 */
+        box-shadow 0.35s ease;                    /* 阴影过渡：随位移加深 */
+}
+
+/* 鼠标悬停：卡片整体轻微上浮并加深阴影 */
+.card:hover {
+    transform: translateY(-8px);                  /* 上浮 8px，产生抬起效果 */
+    box-shadow: 0 18px 32px rgba(31, 45, 61, 0.20); /* 阴影更大更柔和，增强层次感 */
+}
+
+/* ---------- 4. 头像区域 ---------- */
+.avatar-box {
+    /* 头像外侧的圆形光环：与头像同圆心 */
+    width: 112px;                                 /* 光环直径 */
+    height: 112px;                                /* 光环直径 */
+    margin: 0 auto;                               /* 水平居中 */
+    border: 2px solid #dde5ee;                    /* 浅色描边，视觉更精致 */
+    border-radius: 50%;                           /* 圆形 */
+    display: flex;                                /* 弹性盒，使内部头像居中 */
+    align-items: center;                          /* 垂直居中 */
+    justify-content: center;                      /* 水平居中 */
+}
+
+.avatar {
+    width: 100px;                                 /* 头像直径 */
+    height: 100px;                                /* 头像直径 */
+    border-radius: 50%;                           /* 关键样式④：头像裁剪为圆形 */
+    object-fit: cover;                            /* 图片按比例填满并裁剪 */
+}
+
+/* ---------- 5. 姓名与职位 ---------- */
+.name {
+    margin-top: 16px;                             /* 与头像保持间距 */
+    font-size: 24px;                              /* 姓名字号较大，视觉主次分明 */
+    font-weight: 600;                             /* 半粗体 */
+    text-align: center;                           /* 居中 */
+    color: #23303f;                               /* 深色，突出重点 */
+}
+
+.role {
+    margin-top: 6px;                              /* 与姓名间距 */
+    font-size: 14px;                              /* 职位字号稍小 */
+    text-align: center;                           /* 居中 */
+    color: #7d8ba0;                               /* 灰蓝色，弱化次要信息 */
+    letter-spacing: 1px;                          /* 字间距加大，更显简约气质 */
+}
+
+/* ---------- 6. 分隔线 ---------- */
+.divider {
+    margin: 20px 20px;                            /* 上下留白 */
+    border: none;                                 /* 清除默认边框样式 */
+    border-top: 1px solid #e3e9f0;                /* 仅保留顶部浅色细线 */
+}
+
+/* ---------- 7. 联系方式列表 ---------- */
+.contact-list {
+    list-style: none;                             /* 去除默认项目符号 */
+    padding: 0;                                   /* 清除内边距，由卡片统一控制 */
+}
+
+/* 每条联系方式：图标与文字横向排列 */
+.contact-item {
+    display: flex;                /* 弹性盒布局 */
+    align-items: center;          /* 图标与文字垂直对齐 */
+    font-size: 14px;              /* 字号统一 */
+    line-height: 28px;            /* 行高增加点击/阅读舒适度 */
+}
+
+/* 图标（emoji）：固定宽度，保证文字对齐 */
+.icon {
+    width: 34px;                  /* 固定图标列宽 */
+    font-size: 15px;              /* 图标字号 */
+    text-align: center;           /* 图标居中于列内 */
+}
+
+/* 联系信息文字 */
+.text {
+    color: #55687d;               /* 中灰色，介于姓名与职位之间 */
+}

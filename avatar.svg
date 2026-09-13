@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 头像占位图：蓝色渐变背景 + 白色人物剪影，由 CSS 裁为圆形 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4facfe"/>
+      <stop offset="100%" stop-color="#00b4d8"/>
+    </linearGradient>
+  </defs>
+  <!-- 渐变背景 -->
+  <rect width="200" height="200" fill="url(#bg)"/>
+  <!-- 人物头部 -->
+  <circle cx="100" cy="74" r="22" fill="#ffffff"/>
+  <!-- 人物肩部（上半身剪影） -->
+  <ellipse cx="100" cy="134" rx="32" ry="40" fill="#ffffff"/>
+</svg>
